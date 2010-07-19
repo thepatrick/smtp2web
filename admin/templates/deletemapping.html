@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Delete Mapping{% endblock %}
+{% block body %}
+<h1>Delete Mapping</h1>
+<p>Are you sure you want to delete the mapping for
+{% if mapping.user %}{{mapping.user}}{% endif %}@{{mapping.host}}?</p>
+<form method="post" action="delete">
+<input type="submit" name="confirm" value="Yes" />
+<input type="submit" name="confirm" value="No" />
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}New Address Mapping{% endblock %}
+{% block body %}
+<h1>New Address Mapping</h1>
+{% if error %}<div class="error">{{error}}</div>{% endif %}
+<form method="post" action="/addmapping">
+  <input type="hidden" name="type" value="{{type|escape}}" />
+  <table>
+    {% ifequal type "basic" %}
+      <tr><th>User</th><td><input type="text" name="user" {% if user %}value="{{user|escape}}"{% endif %} /></td><td>The 'user' part of the email address</td></tr>
+      <tr><th>Host</th><td><input type="text" name="host" value="s2w.m.ac.nz" disabled="true" /></td><td>The 'host' part of the email address</td></tr>
+    {% else %}
+      <tr><th>User</th><td><input type="text" name="user" value="*" disabled="true" /></td><td>The 'host' part of the email address</td></tr>
+      <tr><th>Host</th><td><input type="text" name="host" {% if host %}value="{{host|escape}}"{% endif %} /></td><td>The 'domain' part of the email address</td></tr>
+    {% endifequal %}
+    <tr><th>URL</th><td><input type="text" name="url" {% if url %}value="{{url|escape}}"{% endif %} /></td><td>The URL to POST messages to.</td></tr>
+    <tr><th></th><td><input type="submit" value="Add" /></td></tr>
+  </table>
+</form>
+{% endblock %}

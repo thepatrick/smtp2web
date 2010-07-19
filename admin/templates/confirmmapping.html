@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Confirm Ownership{% endblock %}
+{% block body %}
+<h1>Confirm Ownership</h1>
+{% if error %}
+  <div class="error">{{error}}</div>
+{% else %}
+  <p>In order to prevent abuse, we require you to prove you own the site you
+  wish smtp2web to send email to.</p>
+{% endif %}
+<p>Please create an empty file in the following location:</p>
+<pre>{{verify_url|escape}}</pre>
+<p>Once you have done so, click to continue.</p>
+<form method="post" action="/addmapping">
+  <input type="hidden" name="confirm" value="True" />
+  <input type="hidden" name="type" value="{{type|escape}}" />
+  <input type="hidden" name="user" value="{{user|escape}}" />
+  <input type="hidden" name="host" value="{{host|escape}}" />
+  <input type="hidden" name="url" value="{{url|escape}}" />
+  <input type="submit" value="Confirm Ownership" />
+</form>
+{% endblock %}

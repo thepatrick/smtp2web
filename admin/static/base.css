@@ -1,0 +1,155 @@
+/*
+
+Copyright 2010 Patrick Quinn-Graham
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+*/
+
+html * {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font: 16px/20px serif;
+	background: #FFF; /* 1a622b */
+}
+
+body.softwareupdate {
+	font: normal 12px/18px "Myriad Web", "Myriad Pro", "Gill Sans", "Gill Sans MT", "Lucida Grande", "Lucida Sans", "Trebuchet MS", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+}
+
+h1 {
+	font-weight: normal;
+	margin-bottom: 0;
+	
+	font: normal 32px/48px "Myriad Web", "Myriad Pro", "Gill Sans", "Gill Sans MT", "Lucida Grande", "Lucida Sans", "Trebuchet MS", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif;
+}
+h1 span {
+	font-size: 60%;
+	color: #666;
+	font-weight: normal;
+}
+#signinBox {
+	top: 0; 
+	right: 0; 
+	text-align: right; 
+	font-size: 0.9em; 
+	padding: 5px 20px;
+	margin: 5px 5px 0;
+	color: #888;
+	-webkit-border-top-left-radius: 1.0em;
+	-webkit-border-bottom-right-radius: 1.0em;
+	background-color: #f9f9f9;
+	
+}
+#signinBox a {
+	color: #175726;
+}
+
+#appVersion {
+	float: left;
+}
+
+#header {
+	color: #0c2f15;
+	padding: 15px 40px;
+	width: 500px;
+	margin: 20px auto 0;
+	-webkit-border-top-left-radius: 1.0em;
+	-webkit-border-top-right-radius: 1.0em;
+	background-color: #eee;
+}
+
+#header a {
+	color: #175726;
+}
+
+
+#page {
+	background: #f8f8f8;
+	color: #111;
+	width: 498px;
+	padding: 10px 40px;
+	margin: 0 auto;
+	font-size: 1.15em;
+	line-height:1.7em;
+	border: 1px solid #eee;
+}
+
+#page ul {
+	margin: 0.5em 4em;
+	line-height: 150%;
+}
+#page a {
+	color: #175726;
+}
+
+#footer {
+	color: #08200e;
+	padding: 10px 40px;
+	margin: 0 auto;
+	width: 500px;
+	text-align: center;
+	-webkit-border-bottom-left-radius: 1.0em;
+	-webkit-border-bottom-right-radius: 1.0em;
+	background-color: #eee;
+	font-size: 0.9em;
+}
+#footer a {
+	color: #175726;
+}
+
+h2 {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 10px 0;
+}
+
+table th {
+	border-bottom: 1px solid #444;
+	text-align: left;
+	padding: 2px 8px;
+}
+
+table td {
+	text-align: left;
+	padding: 2px 8px;
+	background-color: #eee;
+	border-bottom: 1px solid#888;
+}
+.formRow {
+	width: 100%;
+	overflow: hidden;
+	padding: 2px 0;
+}
+.formRow label {
+	width: 100px;
+	display: block;
+	float: left;
+	text-align: right;
+	padding-right: 10px;
+}
+.formRow input {
+	font-size: 1.0em;
+	padding: 0.1em;
+}
+.formRow textarea {
+	font-size: 0.7em;
+	padding: 0.1em;
+	height: 120px;
+}x

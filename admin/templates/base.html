@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+  
+  <!-- /*
+
+    Copyright 2008 arachnid AT notdot.net,
+              2010 Patrick Quinn-Graham
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+    */ -->
+  
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>{%block titleapp %}{% endblock %} {% block title %}Index{% endblock %}</title>
+  <link rel="stylesheet" href="/static/base.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	{%block headjs %}{% endblock %}
+	{%block headcss %}{% endblock %}
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+	<div id="signinBox">
+		<div id="appVersion">{% block appVersion %}{% endblock %}</div>
+		
+		{% block signinBox %}
+		{% if user %}
+			Hi, {{ user.nickname }} |
+			<a href="{{ logout_url }}">Log Out</a>
+		{% else %}	
+			<a href="{{ login_url }}">Log In</a>
+		{% endif %}
+		| {% endblock %}
+	</div>
+
+  <div id="header">	
+    <h1>{% block subtitle %}{% endblock %} s2w.m.ac.nz</h1>
+  </div>
+  <div id="page">
+	{% block body %}{% endblock %}
+  </div>
+
+  <div id="footer">
+    <p>
+      Design &copy; 2008 Patrick Quinn-Graham with <a href="http://soapbox.co.nz/rights-reserved">some rights reserved</a>.<br> For sourcecode see <a href="http://github.com/thepatrick/smtp2web">github</a>
+    </p>
+  </div>
+  
+</body>
+</html>

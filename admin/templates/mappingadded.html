@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Address Mapping Created{% endblock %}
+{% block body %}
+<h1>Address Mapping Created</h1>
+<p>Your new address mapping has been successfully created. All email sent to
+{% ifequal type "basic" %}{{user|escape}}@{% endifequal %}{{host|escape}}
+will now be sent via POST request to <code>{{url|escape}}</code>.</p>
+{% ifequal type "domain" %}
+  <p>You will need to set up mail delivery to ensure mail is routed correctly.
+  Please add the following records for your domain:</p>
+  <pre>{% for mx in mxen %}{{host|escape}}. MX  5 {{mx.mxname}}.
+{% endfor %}</pre>
+{% endifequal %}
+<p>The new mappings will propogate to our mail servers within a minute.</p>
+<p><a href="/">Return home</a></p>
+{% endblock %}

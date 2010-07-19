@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Logs for {{mapping.get_name}}{% endblock %}
+{% block body %}
+<h2>Logs for {{mapping.get_name}}</h2>
+<form method="get" action="logs">
+  Minimum severity: <select name="level">
+    <option value="{{logging.ERROR}}" {% ifequal level logging.ERROR %} selected="selected"{% endifequal %}>Error</option>
+    <option value="{{logging.WARNING}}" {% ifequal level logging.WARNING %} selected="selected"{% endifequal %}>Warning</option>
+    <option value="{{logging.DEBUG}}" {% ifequal level logging.DEBUG %} selected="selected"{% endifequal %}>Debug</option>
+  </select>
+  <input type="submit" value="Go" />
+</form>
+<table>
+  <thead>
+    <tr><th colspan="5">
+      {% if count %}
+        {{start}}-{{start|add:current_count}}
+      {% endif %}
+      {% ifnotequal start 0 %}
+        &nbsp;&nbsp;
+        <a href="logs?level={{level}}&amp;start={{prevstart}}&amp;count={{count}}">&laquo; Previous {{count}}</a>
+      {% endifnotequal %}
+      {% if has_more %}
+        &nbsp;&nbsp;
+        <a href="logs?level={{level}}&amp;start={{start|add:count}}&amp;count={{count}}">Next {{count}} &raquo;</a>
+      {% endif %}
+    </th></tr>
+  </thead>
+  {% for entry in entries %}
+    <tr class="logentry">
+      <td>{{entry.ts|date:"Y-m-d H:i"}}</td>
+      <td>{{entry.sender|escape}}</td>
+      <td>&raquo;</td>
+      <td>{{entry.recipient|escape}}</td>
+      <td>{{entry.human_size}}</td>
+    </tr>
+    {% if entry.message %}
+      <tr class="logmessage"><td colspan="5">{{entry.message}}</td></tr>
+    {% endif %}
+  {% endfor %}
+</table>
+<p><a href="/">Return Home</a></p>
+{% endblock %}

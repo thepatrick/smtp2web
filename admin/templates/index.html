@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+{% if not user %}
+	<p>
+		s2w.m.ac.nz is a private instance of <a href="http://smtp2web.com">smtp2web</a>, a 
+		service that facilitates receiving emails in web applications
+		such as those built on <a href="http://code.google.com/appengine/">Google App Engine</a>.
+		It does this by accepting email for an address or domain, and uploading those
+		emails to your application in POST requests to a URL you provide.
+	</p>
+	<p>&nbsp;</p>
+	<p>
+		To login to this instance of smtp2web you must have an @m.ac.nz Google Account.
+		For more details and to register an address or domain, <a href="{{login_url}}">Sign
+		In</a>.
+	</p>
+
+
+
+{% else %}
+  <h2>Your address mappings</h2>
+  {% if mappings.0 %}
+    <table>
+      <thead>
+        <tr><th>User</th><th>Domain</th><th>POST URL</th><th>Actions</th></tr>
+      </thead>
+      {% for mapping in mappings %}
+        <tr>
+          <td>
+            {% if mapping.user %}
+              {{mapping.user|escape}}
+            {% else %}
+              *
+            {% endif %}
+          </td>
+          <td>{{mapping.host|escape}}</td>
+          <td>{{mapping.url|escape}}</td>
+          <td>
+            <a href="/mapping/{{mapping.key.name}}/logs">View Logs</a>
+            <a href="/mapping/{{mapping.key.name}}/delete">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+	<p>You have no mappings. Why not make one?</p>
+  {% endif %}
+	
+	<h2>Add</h2>
+	<ul>
+		<li><a href="/addmapping?type=basic">@s2w.m.ac.nz mapping</a></li>
+		<li><a href="/addmapping?type=domain">Domain mapping</a></li>
+	</ul>
+{% endif %}
+{% endblock %}
