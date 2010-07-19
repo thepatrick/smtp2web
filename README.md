@@ -16,9 +16,6 @@ original:
    content parts, with all the pesky e-mail encoding done
    for you.
 
-[s]: http://www.smtp2web.com/
-[g]: http://code.google.com/p/smtp2web
-
 What you need to do to run this:
 
 1. You'll need to get setup with [Google appengine][ga],
@@ -49,23 +46,27 @@ What you need to do to run this:
 
 8. Go to the admin interface, e.g. http://my-cool-smtp2web.appspot.com/ and add a mapping, and give it a go!
 
-[ga]: http://code.google.com/appengine/
-[gd]: http://code.google.com/appengine/docs/python/tools/uploadinganapp.html
 
 Licence
 -------
 
-Copyright 2008 arachnid AT notdot.net,
-          2010 Patrick Quinn-Graham
+Copyright 2008 arachnid AT notdot.net, 2010 Patrick Quinn-Graham
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    [http://www.apache.org/licenses/LICENSE-2.0][ap]
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+
+[s]: http://www.smtp2web.com/
+[g]: http://code.google.com/p/smtp2web
+[ga]: http://code.google.com/appengine/
+[gd]: http://code.google.com/appengine/docs/python/tools/uploadinganapp.html
+[ap]: http://www.apache.org/licenses/LICENSE-2.0
